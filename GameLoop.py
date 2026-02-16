@@ -28,8 +28,8 @@ class GameLoop:
         pygame.init()
         if config_data["FULLSCREEN"] == "TRUE":
             info = pygame.display.Info()
-            config_data['SCREEN_HEIGHT'] = int(user32.GetSystemMetrics(1))
-            config_data['SCREEN_WIDTH'] = int(user32.GetSystemMetrics(0))
+            config_data['SCREEN_HEIGHT'] = int(info.current_h)
+            config_data['SCREEN_WIDTH'] = int(info.current_w)
             self.screen = pygame.display.set_mode((config_data['SCREEN_WIDTH'], config_data['SCREEN_HEIGHT']),
                                                   pygame.FULLSCREEN)
         else:
