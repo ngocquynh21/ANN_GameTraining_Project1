@@ -27,7 +27,7 @@ class GameLoop:
         # used to initialise the pygame library
         pygame.init()
         if config_data["FULLSCREEN"] == "TRUE":
-            user32 = ctypes.windll.user32
+            info = pygame.display.Info()
             config_data['SCREEN_HEIGHT'] = int(user32.GetSystemMetrics(1))
             config_data['SCREEN_WIDTH'] = int(user32.GetSystemMetrics(0))
             self.screen = pygame.display.set_mode((config_data['SCREEN_WIDTH'], config_data['SCREEN_HEIGHT']),
