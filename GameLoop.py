@@ -149,6 +149,8 @@ class GameLoop:
                         
                         # avoid infinite turning, limit max angle
                         print("current status controller: ", self.controller.up, " -- ", self.controller.left, " -- ", self.controller.right)
+                        # Chèn vào đoạn Neural Net đang dự đoán (game_modes[2])
+                        print(f">>> ANN Decision | Vel_X Target: {nn_prediction[0]:.4f} | Vel_Y Target: {nn_prediction[1]:.4f} | Angle: {self.lander.current_angle:.1f}")
                         print("current status lander: ", self.lander.velocity.y, " -- ", self.lander.velocity.x, " -- ", self.lander.velocity.y > nn_prediction[1], " -- ", self.lander.velocity.x < nn_prediction[0], " -- ", self.lander.velocity.y - nn_prediction[1])
                         if (self.lander.current_angle > 30 and self.lander.current_angle < 330):
                             ang_val = (self.lander.current_angle - 30)/(330-30)
